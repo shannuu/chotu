@@ -1,6 +1,7 @@
 # Made by kushal
 
 source dircheck.sh
+source update.sh
 source expvar.sh
 source install.sh
 source banner.sh
