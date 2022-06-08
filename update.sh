@@ -1,5 +1,6 @@
-pversion=$(cat version)
-lversion=$(curl https://raw.githubusercontent.com/shannuu/chotu/main/version)
+pversion=$(cat version || exit)
+curl https://raw.githubusercontent.com/shannuu/chotu/main/version > lversion
+lversion=$(cat lversion || exit)
 
 if [[ $pversion != $lversion ]]; then
     cd
@@ -14,3 +15,5 @@ if [[ $pversion != $lversion ]]; then
     clear
     exit
 fi
+
+rm lversion
