@@ -10,8 +10,12 @@ elif [[ $ter == *"bright"* ]]; then
     source $dir/brightness.sh
     
 
+elif [[ $ter == *"show"* ]]; then
+    source $dir/show.sh
+    
+
 elif [[ $ter == *"phishing"* || $ter == *"fishing"* ]]; then
-    source $dir/fishing.sh
+    source $dir/phishing.sh
     
 
 elif [[ $ter == *"brute"* || $ter == *"force"* ]]; then
