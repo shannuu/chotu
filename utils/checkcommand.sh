@@ -10,7 +10,7 @@ elif [[ $ter == *"bright"* ]]; then
     source $dir/brightness.sh
     
 
-elif [[ $ter == *"show"* ]]; then
+elif [[ $ter == *"show"* || $ter == *"list"* || $ter == *"ls"* || $ter == *"dir"* ]]; then
     source $dir/show.sh
     
 
@@ -28,6 +28,9 @@ elif [[ $ter == *"ddos"*  || $ter == *"distributed"* || $ter == *"denial"* || $t
     
 elif [[ $ter == *"ip"* || $ter == *"internet"* || $ter == *"protocol"* ]]; then
     source $dir/ip.sh
+    
+elif [[ $ter == *"help"* ]]; then
+    source $dir/help.sh
 
 else
     ter=$(termux-dialog -t "Enter the command" | jq ".text" -r)
