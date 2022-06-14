@@ -1,4 +1,4 @@
-if [[ $(cat $dir/version) != $(curl https://raw.githubusercontent.com/shannuu/chotu/main/version) ]]; then
+if [[ $(cat $dir/version) != $(curl https://raw.githubusercontent.com/shannuu/chotu/main/utils/version) ]]; then
     speak="New version of CHOTU found"
     speakf
     clear
