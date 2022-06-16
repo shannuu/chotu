@@ -6,6 +6,7 @@ source $dir/install.sh
 source $dir/listen.sh
 source $dir/speak.sh
 source $dir/update.sh
+source $dir/banner.sh
 
 while [[ true ]]; do
     if [[ $cnf == "true" ]]; then
