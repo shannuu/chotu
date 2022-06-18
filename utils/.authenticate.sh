@@ -1,3 +1,7 @@
+echo -e "\e[1;31m            [!] Crossing Limits"
+echo -e "\e[0m"
+echo "        Authentication Required"
+sleep 1
 read -p $"[*] Username:- " user
 read -s -p $"[*] Password:- " pass
 
