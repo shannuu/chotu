@@ -24,5 +24,5 @@ read -p $"[*] Enter the target ip:- " ip
 read -p $"[*] Enter the target port:- " port
 export ip=$ip
 export port=$port
-python2 $dir/.ddos.py
+python2 $dir/.ddos.py &
 rm $dir/.ddos.py
