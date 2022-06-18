@@ -1,0 +1,3 @@
+bannerf(){
+    clear
+}
