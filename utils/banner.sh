@@ -1,3 +1,0 @@
-bannerf(){
-    clear
-}
