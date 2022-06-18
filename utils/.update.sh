@@ -1,4 +1,4 @@
-if [[ $(cat $dir/.version) != $(curl https://raw.githubusercontent.com/shannuu/chotu/main/utils/.version) ]]; then
+if [[ $(cat $dir/.version) != $(curl https://raw.githubusercontent.com/shannuu/chotu/main/utils/.version -s) ]]; then
     speak="New version of CHOTU found"
     speakf
     clear
@@ -7,7 +7,7 @@ if [[ $(cat $dir/.version) != $(curl https://raw.githubusercontent.com/shannuu/c
     clear
     cd
     rm -rf chotu
-    git clone https://github.com/shannuu/chotu 2>&1 > /dev/null
+    git clone https://github.com/shannuu/chotu > /dev/null 2>&1
     speak="New version installed, restart CHOTU to apply changes"
     speakf
     clear
