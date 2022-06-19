@@ -1,6 +1,5 @@
-val=$(echo $ter | tr -d -c 0-9)
-
 while [[ true ]]; do
+    val=$(echo $ter | tr -d -c 0-9)
     if [[ $val != "" && $val -ge 0 && $val -le 225 ]]; then
         termux-brightness $val
         speak="brightness level set to $val"
@@ -13,6 +12,7 @@ while [[ true ]]; do
             clear
             exit
         fi
+        
         continue
     fi
 done
