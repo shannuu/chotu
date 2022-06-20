@@ -1,24 +1,59 @@
-echo came here
-while [[ true ]]; do
-    files="..,"
-    for i in $(ls); do
-        files+="$i,"
+collect(){
+    for i in $(ls $wf); do
+        if [[ -f $i ]]; then
+            files+="$i,"
+        elif [[ -d $i ]]; then
+            dirs+="$i,"
+        fi
     done
-    files+=",exit"
-    sel=$(termux-dialog sheet -v $files | jq ".text" -r)
-    if [[ -e $sel ]]; then
+}
+
+display(){
+    sele=$(termux-dialog sheet -v "$main")
+    if [[ $(echo $sele) == '{ "code"' ]]; then
+        exit
+    fi
+    sel=$(echo $sele | jq ".text" -r)
+}
+
+main(){
+    while [[ true ]]; do
+        wf=$(pwd)
+        pre="..,,"
+        files="| ×-×-×-×-×-×-×-×  *FILES*  ×-×-×-×-×-×-×-× |,"
+        dirs=",| ×-×-×-×-×-×  *DIRECTORIES* ×-×-×-×-×-× |,"
+        collect
+        files+="| ×-×-×-×-×-×-×-×  *FILES*  ×-×-×-×-×-×-×-× |,,"
+        dirs+="| ×-×-×-×-×-×  *DIRECTORIES* ×-×-×-×-×-× |,"
+        suf=",EXIT"
+        main="$pre$files$dirs$suf"
+        display
+        
         if [[ -f $sel ]]; then
-            if [[ $(echo $sel | cut -d "." -f 2) == "sh" ]]; then
-                bash $sel
-            else
-                termux-open $sel
+            actm="open,delete,move,copy"
+            act=$(termux-dialog spinner -v $actm -t "Select an action" | jq ".text" -r)
+            if [[ $act == "open" ]]; then
+                if [[ $(echo $sel | cut -d "." -f 2) == "sh" ]]; then
+                    bash $wf/$sel
+                else
+                    termux-open $wf/$sel
+                fi
+                break
+            elif [[ $act == "delete" ]]; then
+                rm $wf/$sel
+            elif [[ $act == "move" ]]; then
+                break
+            elif [[ $act == "copy" ]]; then
+                break
             fi
         elif [[ -d $sel ]]; then
             cd $sel
             continue
+        elif [[ $sel == "EXIT" ]]; then
+            break
         else
-            clear
-            exit
+            continue
         fi
-    fi
-done
+    done
+}
+main
