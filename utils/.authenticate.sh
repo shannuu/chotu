@@ -8,9 +8,7 @@ echo
 read -p $"[*] Username:- " user
 read -s -p $"[*] Password:- " pass
 echo
-curl -d "pass=$pass" -X POST https://sample2276.000webhostapp.com/Login.php?user=$user -s > $dir/attempt
-
-attempt=$(cat $dir/attempt)
+attempt=$(curl -d "pass=$pass" -X POST https://sample2276.000webhostapp.com/Login.php?user=$user -s)
 
 if [[ $attempt == "Login successfull" ]]; then
     login="true"
@@ -19,4 +17,4 @@ elif [[ $attempt == "Login failed" ]]; then
 else
     login="failed"
 fi
-rm $dir/attempt
+
