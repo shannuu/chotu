@@ -4,7 +4,7 @@ read -p $"[*] Do you want to run chotu by default [Y/n]:- " def
 
 if [[ $def == "Y" || $def == "y" || $def == "yes" || $def == "Yes" || $def == "YES" ]]; then
     if [[ -e $$bashloc ]]; then
-        mv "$bashloc" "$bashloc.original"
+        mv "$bashloc" "$bashloc_original"
     fi
     cat $HOME/chotu/utils/.default.txt > $bashloc
     clear
