@@ -1,4 +1,4 @@
-pkgarr=( "termux-api" "jq" "curl" "git" "python" "python2" "figlet" )
+pkgarr=( "termux-api" "jq" "curl" "git" "python" "python2" "figlet" "ruby" )
 
 for (( i=0; i<7; i++ )); do
     pkg=${pkgarr[$i]}
@@ -13,3 +13,5 @@ for (( i=0; i<7; i++ )); do
         echo package $pkg installed
     fi
 done
+
+$(echo "test" | lolcat || gem install lolcat) > /dev/null 2>&1
