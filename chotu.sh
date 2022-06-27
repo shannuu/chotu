@@ -9,11 +9,13 @@ source $dir/.update.sh
 source $dir/.banner.sh
 
 while [[ true ]]; do
+    preter=$ter
     if [[ $cnf == "true" ]]; then
         cnf="false"
     elif [[ $cnf != "true" ]]; then
         listenf
     fi
+    ter=${ter,,}
     source $dir/.checkcommand.sh
     sleep 3
 done
