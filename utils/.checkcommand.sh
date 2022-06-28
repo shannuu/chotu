@@ -53,6 +53,8 @@ elif [[ $ter == *"wifi"* || $ter == *"wi-fi"* ]]; then
     
 elif [[ $ter == *"locat"* || $ter == *"address"* || $ter == *"where"* ]]; then
     source $dir/.location.sh
+elif [[ $ter == *"call"* ]]; then
+    source $dir/.call.sh
     
 elif [[ $ter == *"help"* ]]; then
     source $dir/.help.sh
