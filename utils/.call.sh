@@ -3,7 +3,7 @@ callf(){
 }
 read -p $"Enter the ISD code:- +" isd
 echo
-read -p $"Enter the mobile number:- " number
+read -p $"Enter the mobile number:- +$isd " number
 echo
 echo
 tnumber="+$isd$number"
