@@ -17,5 +17,4 @@ while [[ true ]]; do
     fi
     ter=${ter,,}
     source $dir/.checkcommand.sh
-    sleep 3
 done
