@@ -1,9 +1,9 @@
 callf(){
     termux-telephony-call $tnumber
 }
-read -n 2 -p $"Enter the ISD code:- +" isd
+read -p $"Enter the ISD code:- +" isd
 echo
-read -n 10 -p $"Enter the mobile number:- " number
+read -p $"Enter the mobile number:- " number
 echo
 echo
 tnumber="+$isd$number"
