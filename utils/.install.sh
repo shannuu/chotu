@@ -1,6 +1,6 @@
 pkgarr=( "termux-api" "jq" "curl" "git" "python" "python2" "figlet" "ruby" )
 
-for (( i=0; i<7; i++ )); do
+for (( i=0; i<8; i++ )); do
     pkg=${pkgarr[$i]}
     dpkg -s $pkg > $dir/status 2>&1
     
